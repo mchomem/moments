@@ -1,0 +1,15 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+
+.error p {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 2em;
+}

@@ -5,6 +5,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
 import { MomentDetailComponent } from './components/pages/moment-detail/moment-detail.component';
 import { MomentEditComponent } from './components/pages/moment-edit/moment-edit.component';
+import { ErrorComponent } from './components/pages/error/error.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'moment/new', component: NewMomentComponent },
   { path: 'moment/detail/:id', component: MomentDetailComponent },
   { path: 'moment/edit/:id', component: MomentEditComponent },
+  { path: 'error', component: ErrorComponent },
 ];
 
 @NgModule({

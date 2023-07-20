@@ -3,6 +3,7 @@ import { MomentService } from 'src/app/services/moment.service';
 import { Moment } from 'src/app/models/Moment';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.development';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   seatchTerm: string = '';
   loader: boolean = true;
 
-  constructor(private momentService: MomentService) { }
+  constructor(private momentService: MomentService, private route: Router) { }
 
   ngOnInit(): void {
     this.load();
@@ -37,6 +38,9 @@ export class HomeComponent implements OnInit {
 
       this.moments = this.allMoments = data;
       this.loader = false;
+    }, (error) => {
+      console.error(`[Error at ${new Date().toLocaleDateString('pt-BR')}]: ${error.message}`);      
+      this.route.navigate(['error']);
     });
   }
 
