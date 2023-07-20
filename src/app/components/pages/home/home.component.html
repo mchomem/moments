@@ -1,0 +1,49 @@
+<div class="home-container">
+  <h1>See what they are sharing</h1>
+
+  <!-- form de busca -->
+  <div class="search-container">
+    <form>
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <input
+        type="text"
+        placeholder="Type by term to search specific moment."
+        (input)="search($event)"
+      />
+    </form>
+  </div>
+
+  <div *ngIf="loader">
+    <fa-icon [icon]="faSpinner" [spin]="true" size="4x"></fa-icon>
+  </div>
+
+  <div *ngIf="!loader">
+    <div *ngIf="moments.length > 0; else noMoments">
+      <div class="moments-container">
+        <div class="moment" *ngFor="let moment of moments">
+          <img
+            *ngIf="moment.image; else noPhoto"
+            src="{{ baseApiUrlServerImageFile }}uploads/{{ moment.image }}"
+            alt="{{ moment.title }}"
+          />
+          <ng-template #noPhoto>
+            <img
+              class="no-photo"
+              src="../../../../assets/no-photo.jpg"
+              alt=""
+            />
+          </ng-template>
+          <h3>{{ moment.title }}</h3>
+          <p class="date">At: {{ moment.created_at }}</p>
+          <p>Comments: {{ moment.comments!.length }}</p>
+          <p>
+            <a routerLink="moment/detail/{{ moment.id }}">Details</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <ng-template #noMoments>
+      <h1>There no moments recorded.</h1>
+    </ng-template>
+  </div>
+</div>

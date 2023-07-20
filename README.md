@@ -1,6 +1,8 @@
 # Moments
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.4.
+The project is based on the series of videos by [Matheus Battisti - Hora de Codar](https://www.youtube.com/watch?v=vJt_K1bFUeA&list=PLnDvRpP8Bnex2GQEN0768_AxZg_RaIGmw), it has some differences in relation to the original project.
+
 
 ## Development server
 
