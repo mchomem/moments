@@ -21,13 +21,15 @@
     <div *ngIf="moments.length > 0; else noMoments">
       <div class="moments-container">
         <div class="moment" *ngFor="let moment of moments">
-          <img routerLink="moment/detail/{{ moment.id }}"
+          <img
+            routerLink="moment/detail/{{ moment.id }}"
             *ngIf="moment.image; else noPhoto"
             src="{{ baseApiUrlServerImageFile }}uploads/{{ moment.image }}"
             alt="{{ moment.title }}"
           />
           <ng-template #noPhoto>
             <img
+              routerLink="moment/detail/{{ moment.id }}"
               class="no-photo"
               src="../../../../assets/no-photo.jpg"
               alt=""
