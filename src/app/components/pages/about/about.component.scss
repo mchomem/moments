@@ -14,3 +14,21 @@ p {
 .about a {
     text-decoration: underline;
 }
+
+.project-timeline {
+    background-color: #efefef;
+    margin-top: 3em;
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.project-timeline h3 {
+    padding-bottom: 2em;
+    padding-top: 2em;
+    text-align: center;
+}
+
+.project-timeline p {
+    padding-left: 1em;
+    padding-right: 1em;
+}
