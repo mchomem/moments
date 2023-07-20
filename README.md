@@ -6,6 +6,8 @@ The project is based on the series of videos by [Matheus Battisti - Hora de Coda
 
 ## Development server
 
+Before executing the front-end, the back-end must be downloaded and executed, whose repository is at this address [Moments Api](https://github.com/mchomem/moments.api). There are procedures for starting the backend as well.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
