@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewMomentComponent } from './new-moment.component';
+import { MomentNewComponent } from './moment-new.component';
 
-describe('NewMomentComponent', () => {
-  let component: NewMomentComponent;
-  let fixture: ComponentFixture<NewMomentComponent>;
+describe('MomentNewComponent', () => {
+  let component: MomentNewComponent;
+  let fixture: ComponentFixture<MomentNewComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NewMomentComponent]
+      declarations: [MomentNewComponent]
     });
-    fixture = TestBed.createComponent(NewMomentComponent);
+    fixture = TestBed.createComponent(MomentNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

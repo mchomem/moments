@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
-import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
+import { MomentNewComponent } from './components/pages/moment-new/moment-new.component';
 import { MomentFormComponent } from './components/moment-form/moment-form.component';
 import { MessageComponent } from './components/message/message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,7 +24,7 @@ import { ErrorComponent } from './components/pages/error/error.component';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    NewMomentComponent,
+    MomentNewComponent,
     MomentFormComponent,
     MessageComponent,
     MomentDetailComponent,

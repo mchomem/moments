@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-moment',
-  templateUrl: './new-moment.component.html',
-  styleUrls: ['./new-moment.component.scss']
+  templateUrl: './moment-new.component.html',
+  styleUrls: ['./moment-new.component.scss']
 })
-export class NewMomentComponent implements OnInit {
+export class MomentNewComponent implements OnInit {
 
   btnText: string = 'Share!';
 
