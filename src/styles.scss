@@ -73,6 +73,7 @@ input[type="submit"]:hover {
 }
 
 /* Buttons */
+.back-btn,
 .edit-btn,
 .remove-btn {
     border: 1px solid #efefef;
@@ -87,6 +88,18 @@ input[type="submit"]:hover {
 button fa-icon,
 a fa-icon {
     margin-right: 0.2em;
+}
+
+.back-btn,
+.back-btn path {
+    border-color: silver;
+    color: silver;
+}
+
+.back-btn:hover,
+.back-btn:hover path {
+    color: #000;
+    border-color: silver;
 }
 
 .edit-btn,

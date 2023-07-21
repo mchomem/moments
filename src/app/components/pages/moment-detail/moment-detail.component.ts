@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
-import { faTimes, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTimes, faEdit, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.development';
 import { Moment } from 'src/app/models/Moment';
 import { Comment } from 'src/app/models/Comment';
@@ -20,6 +20,7 @@ export class MomentDetailComponent implements OnInit {
   baseApiUrlServerImageFile: string = environment.baseApiUrl;
   faTimes = faTimes;
   faEdit = faEdit;
+  faArrowLeft = faArrowLeft;
   commentForm!: FormGroup;
 
   constructor(private momentService: MomentService
@@ -71,11 +72,15 @@ export class MomentDetailComponent implements OnInit {
     await this.commentService.create(data).subscribe((response) => this.moment!.comments!.push(response.data));
 
     this.messageService.add('Comment added.');
-    
+
     // Limpar formuário.
     this.commentForm.reset();
     formDirective.resetForm();
 
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
   }
 
 }
