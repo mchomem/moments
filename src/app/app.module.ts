@@ -16,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MomentDetailComponent } from './components/pages/moment-detail/moment-detail.component';
 import { MomentEditComponent } from './components/pages/moment-edit/moment-edit.component';
 import { ErrorComponent } from './components/pages/error/error.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ErrorComponent } from './components/pages/error/error.component';
     MessageComponent,
     MomentDetailComponent,
     MomentEditComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

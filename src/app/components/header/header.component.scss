@@ -1,4 +1,4 @@
-nav {
+.nav-app {
     display: flex;
     justify-content: space-between;
     padding: 1em;
@@ -40,4 +40,20 @@ nav {
 
 #add a:hover {
     background-color: #efefef;
+}
+
+.user-area {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+}
+
+.operations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.operations span, button {
+    padding: .7em;
 }

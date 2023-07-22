@@ -1,9 +1,15 @@
 <app-message></app-message>
 
-<app-header></app-header>
+<div>
+  <app-login *ngIf="!userLogged; else logged"></app-login>
 
-<main class="container">
-  <router-outlet></router-outlet>
-</main>
+  <ng-template #logged>
+    <app-header></app-header>
 
-<app-footer></app-footer>
+    <main class="container">
+      <router-outlet></router-outlet>
+    </main>
+
+    <app-footer></app-footer>
+  </ng-template>
+</div>

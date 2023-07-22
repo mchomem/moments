@@ -1,0 +1,42 @@
+<div class="login-container">
+  <form
+    class="login-form"
+    (ngSubmit)="onSubmit()"
+    [formGroup]="loginForm"
+    #formDir="ngForm"
+  >
+    <div class="splash">
+      <img src="../../../assets/moments.png" alt="Moments" />
+    </div>
+    <span class="splash">Moments</span>
+    <input
+      id="login"
+      type="text"
+      formControlName="login"
+      name="login"
+      placeholder="Login"
+      required
+    />
+
+    <div *ngIf="login.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="login.errors?.['required']">Login is required.</p>
+    </div>
+
+    <input
+      id="password"
+      type="password"
+      name="password"
+      formControlName="password"
+      placeholder="password"
+      required
+    />
+
+    <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="password.errors?.['required']">Password is required.</p>
+    </div>
+
+    <button type="submit">Sign in</button>
+    <p>Do you need an account?</p>
+    <p><a href="#">Register your self</a></p>
+  </form>
+</div>
