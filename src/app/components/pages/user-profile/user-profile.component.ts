@@ -66,8 +66,8 @@ export class UserProfileComponent implements OnInit {
     formData.append('password', this.userForm.get('password')?.value)
 
     this.userService.update(this.user.id!, formData).subscribe()
-
+    
     this.messageService.add('User data updated.');
-    //this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 }
