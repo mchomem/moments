@@ -27,9 +27,6 @@ export class UserProfileComponent implements OnInit {
     this.userService.get(id).subscribe((reponse) => {
       this.user = reponse.data
       this.userForm.patchValue(this.user)
-
-      console.log('senha:', this.userForm.get('password')?.value)
-      console.log('full_name:', this.userForm.get('full_name')?.value)
     });
 
     this.userForm = new FormGroup({
@@ -66,7 +63,7 @@ export class UserProfileComponent implements OnInit {
     formData.append('password', this.userForm.get('password')?.value)
 
     this.userService.update(this.user.id!, formData).subscribe()
-    
+
     this.messageService.add('User data updated.');
     this.router.navigate(['/']);
   }
