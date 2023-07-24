@@ -17,6 +17,7 @@ import { MomentDetailComponent } from './components/pages/moment-detail/moment-d
 import { MomentEditComponent } from './components/pages/moment-edit/moment-edit.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { LoginComponent } from './auth/login/login.component';
+import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './auth/login/login.component';
     MomentDetailComponent,
     MomentEditComponent,
     ErrorComponent,
-    LoginComponent
+    LoginComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

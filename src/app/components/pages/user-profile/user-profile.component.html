@@ -1,0 +1,30 @@
+<h2>User profile</h2>
+
+<form (ngSubmit)="submit()" [formGroup]="userForm" #formDir="ngForm">
+  <input type="hidden" formControlName="id" />
+  <div class="form-group">
+    <label for="full_name">Full name</label>
+    <input type="text" formControlName="full_name" readonly />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" formControlName="password" required />
+    <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="password.errors?.['required']">Password is required.</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirm_password">Confirm password</label>
+    <input type="password" formControlName="confirm_password" required />
+    <div
+      *ngIf="confirm_password.invalid && formDir.submitted"
+      class="validation-error"
+    >
+      <p *ngIf="confirm_password.errors?.['required']">
+        Confirm password is required.
+      </p>
+    </div>
+  </div>
+  <input type="submit" value="Save" />
+</form>

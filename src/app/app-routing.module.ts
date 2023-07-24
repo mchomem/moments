@@ -7,6 +7,7 @@ import { MomentDetailComponent } from './components/pages/moment-detail/moment-d
 import { MomentEditComponent } from './components/pages/moment-edit/moment-edit.component';
 import { ErrorComponent } from './components/pages/error/error.component';
 import { LoginComponent } from './auth/login/login.component';
+import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'moment/new', component: MomentNewComponent },
   { path: 'moment/detail/:id', component: MomentDetailComponent },
   { path: 'moment/edit/:id', component: MomentEditComponent },
+  { path: 'user-profile/:id', component: UserProfileComponent },
   
   { path: 'login', component: LoginComponent },
   
