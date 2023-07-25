@@ -15,10 +15,7 @@ const routes: Routes = [
   { path: 'moment/new', component: MomentNewComponent },
   { path: 'moment/detail/:id', component: MomentDetailComponent },
   { path: 'moment/edit/:id', component: MomentEditComponent },
-  { path: 'user-profile/:id', component: UserProfileComponent },
-  
-  { path: 'login', component: LoginComponent },
-  
+  { path: 'user-profile/:id', component: UserProfileComponent },  
   { path: 'error', component: ErrorComponent },
 ];
 
