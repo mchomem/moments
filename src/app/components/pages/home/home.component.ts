@@ -4,6 +4,7 @@ import { Moment } from 'src/app/models/Moment';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.development';
 import { Router } from '@angular/router';
+import { DataFormatService } from 'src/app/services/util/data-format.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,9 @@ export class HomeComponent implements OnInit {
   seatchTerm: string = '';
   loader: boolean = true;
 
-  constructor(private momentService: MomentService, private route: Router) { }
+  constructor(private momentService: MomentService
+    , private route: Router
+    , private dataFormatService: DataFormatService) { }
 
   ngOnInit(): void {
     this.load();
@@ -29,11 +32,10 @@ export class HomeComponent implements OnInit {
   async load() {
     await this.momentService.getAll().subscribe((items) => {
       const data = items.data;
-      const limitChar = 30;
       // Tratando as datas.
       data.map((item) => {
         item.created_at = new Date(item.created_at!).toLocaleDateString('pt-BR')
-        item.title = item.title.length > limitChar ? `${item.title.substring(0, limitChar)} ...` : item.title;
+        item.title = this.dataFormatService.redux(item.title, 30);
       });
 
       this.moments = this.allMoments = data;
