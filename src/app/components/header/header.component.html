@@ -11,11 +11,9 @@
       <li>
         <a routerLink="/user-profile/{{ user.id }}">[{{ user.full_name }}]</a>
       </li>
+      <li>
+        <input type="submit" (click)="logout()" value="Sign out" />
+      </li>
     </ul>
   </nav>
-  <div class="user-area">
-    <div class="operations">
-      <input type="submit" (click)="logout()" value="Sign out" />
-    </div>
-  </div>
 </div>
