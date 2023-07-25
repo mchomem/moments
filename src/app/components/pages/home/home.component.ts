@@ -39,7 +39,6 @@ export class HomeComponent implements OnInit {
       this.moments = this.allMoments = data;
       this.loader = false;
     }, (error) => {
-      console.error(`[Error at ${new Date().toLocaleDateString('pt-BR')}]: ${error.message}`);      
       this.route.navigate(['error']);
     });
   }
