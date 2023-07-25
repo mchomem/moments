@@ -21,7 +21,7 @@ export class MomentEditComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    
+
     this.momentService.get(id).subscribe((response) => {
       this.moment = response.data;
       console.log(response.data);
@@ -40,10 +40,10 @@ export class MomentEditComponent implements OnInit {
       formData.append('image', momentData.image);
     }
 
-    await this.momentService.update(id!, formData).subscribe();
-
-    this.messageService.add(`Moment ${id} was successfully updated.`);
-    this.router.navigate(['/']);
+    await this.momentService.update(id!, formData).subscribe(() => {
+      this.messageService.add(`Moment ${id} was successfully updated.`);
+      this.router.navigate(['/']);
+    });
   }
 
 }

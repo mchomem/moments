@@ -55,9 +55,10 @@ export class MomentDetailComponent implements OnInit {
   }
 
   async removeMoment(id: number) {
-    await this.momentService.delete(id).subscribe();
-    this.messageService.add('Moment successfully deleted.');
-    this.router.navigate(['/']);
+    await this.momentService.delete(id).subscribe(() => {
+      this.messageService.add('Moment successfully deleted.');
+      this.router.navigate(['/']);
+    });
   }
 
   async onSubmitComment(formDirective: FormGroupDirective) {
@@ -69,14 +70,13 @@ export class MomentDetailComponent implements OnInit {
     const data: Comment = this.commentForm.value;
     data.momentId = Number(this.moment!.id);
 
-    await this.commentService.create(data).subscribe((response) => this.moment!.comments!.push(response.data));
-
-    this.messageService.add('Comment added.');
-
-    // Limpar formuário.
-    this.commentForm.reset();
-    formDirective.resetForm();
-
+    await this.commentService.create(data).subscribe((response) => {
+      this.moment!.comments!.push(response.data)
+      this.messageService.add('Comment added.');
+      // Limpar formuário.
+      this.commentForm.reset();
+      formDirective.resetForm();
+    });
   }
 
   goBack() {
