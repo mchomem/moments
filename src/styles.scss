@@ -92,14 +92,14 @@ a fa-icon {
 
 .back-btn,
 .back-btn path {
-    border-color: silver;
-    color: silver;
+    border-color: #000;
+    color: #000;
 }
 
 .back-btn:hover,
 .back-btn:hover path {
-    color: #000;
-    border-color: silver;
+    color: silver;
+    background-color: #000;
 }
 
 .edit-btn,
