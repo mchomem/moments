@@ -32,6 +32,7 @@ export class UserProfileComponent implements OnInit {
     this.userForm = new FormGroup({
       id: new FormControl(this.user ? this.user.id : ''),
       full_name: new FormControl(this.user ? this.user.full_name : ''),
+      login: new FormControl(this.user ? this.user.login : ''),
       password: new FormControl('', [Validators.required]),
       confirm_password: new FormControl('', [Validators.required])
     });
