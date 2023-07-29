@@ -23,6 +23,10 @@ export class UserService {
     return this.http.get<ApiResponse<User>>(`${this.apiUrl}/${id}`);
   }
 
+  getByLogin(login: string): Observable<ApiResponse<User>> {
+    return this.http.get<ApiResponse<User>>(`${this.apiUrl}/get-by-login/${login}`);
+  }
+
   create(formData: FormData): Observable<FormData> {
     return this.http.post<FormData>(this.apiUrl, formData);
   }

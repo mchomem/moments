@@ -12,6 +12,7 @@ import { MessageService } from 'src/app/services/message.service';
 })
 export class LoginComponent implements OnInit {
 
+  showSignUpForm: boolean = false;
   user!: User;
   token!: string;
   loginForm!: FormGroup;
