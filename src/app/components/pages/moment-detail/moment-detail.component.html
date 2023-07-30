@@ -54,10 +54,7 @@
           formControlName="text"
           placeholder="What do you want to comment?"
           required
-        ></textarea>
-        <div>
-          <span class="comment-warning">Be responsible, bad comments will be moderated</span>
-        </div>
+        ></textarea>        
         <div *ngIf="text.invalid && formDir.submitted" class="validation-error">
           <p *ngIf="text.errors?.['required']">Comment text is required.</p>
         </div>
@@ -80,6 +77,9 @@
         </div>
       </div>
       <input type="submit" value="Comment" />
+      <div>
+        <span class="comment-warning">Be responsible, bad comments will be moderated</span>
+      </div>
     </form>
   </div>
 </div>
