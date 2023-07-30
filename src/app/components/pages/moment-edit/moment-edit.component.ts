@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Moment } from 'src/app/models/Moment';
-import { MomentService } from 'src/app/services/moment.service';
-import { MessageService } from 'src/app/services/message.service';
+import { MomentService } from 'src/app/services/moment/moment.service';
+import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-moment-edit',

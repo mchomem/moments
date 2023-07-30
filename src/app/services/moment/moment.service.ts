@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Moment } from '../models/Moment';
-import { ApiResponse } from '../models/ApiResponse';
+import { Moment } from 'src/app/models/Moment';
+import { ApiResponse } from 'src/app/models/ApiResponse';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({

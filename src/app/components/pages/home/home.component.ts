@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MomentService } from 'src/app/services/moment.service';
+import { MomentService } from 'src/app/services/moment/moment.service';
 import { Moment } from 'src/app/models/Moment';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { environment } from 'src/environments/environment.development';

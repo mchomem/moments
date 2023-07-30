@@ -5,9 +5,9 @@ import { faTimes, faEdit, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { environment } from 'src/environments/environment.development';
 import { Moment } from 'src/app/models/Moment';
 import { Comment } from 'src/app/models/Comment';
-import { MomentService } from 'src/app/services/moment.service';
-import { CommentService } from 'src/app/services/comment.service';
-import { MessageService } from 'src/app/services/message.service';
+import { MomentService } from 'src/app/services/moment/moment.service';
+import { CommentService } from 'src/app/services/comment/comment.service';
+import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-moment-detail',
