@@ -7,22 +7,40 @@
   >
     <h2>Sign up</h2>
 
-    <input type="text" formControlName="full_name" placeholder="Full Name" required />
-    <div *ngIf="full_name.invalid && formDir.submitted" class="validation-error">
+    <input
+      type="text"
+      formControlName="full_name"
+      placeholder="Full Name"
+      required
+    />
+    <div
+      *ngIf="full_name.invalid && formDir.submitted"
+      class="validation-error"
+    >
       <p *ngIf="full_name.errors?.['required']">Full name is required.</p>
     </div>
-    
+
     <input type="text" formControlName="login" placeholder="Login" required />
     <div *ngIf="login.invalid && formDir.submitted" class="validation-error">
       <p *ngIf="login.errors?.['required']">Login is required.</p>
     </div>
 
-    <input type="text" formControlName="password" placeholder="Password" required />
+    <input
+      type="text"
+      formControlName="password"
+      placeholder="Password"
+      required
+    />
     <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
       <p *ngIf="password.errors?.['required']">Password is required.</p>
     </div>
 
-    <input type="text" formControlName="confirm_password" placeholder="Confirm password" required />
+    <input
+      type="text"
+      formControlName="confirm_password"
+      placeholder="Confirm password"
+      required
+    />
     <div
       *ngIf="confirm_password.invalid && formDir.submitted"
       class="validation-error"
@@ -31,8 +49,7 @@
         Confirm password is required.
       </p>
     </div>
-
-    <button class="outline" (click)="goBack()">Back</button>
+    <button type="button" class="outline" (click)="goBack()">Back</button>
     <button type="submit">Save</button>
   </form>
 </div>
