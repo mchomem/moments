@@ -1,10 +1,10 @@
 <h2>User profile deletion</h2>
 
 <form>
-  <p>
-    Careful! When deleting your user profile data, it is not possible to undo this
-    operation.
-  </p>
+  <div class="danger">
+    Careful! When deleting your user profile data, it will not be possible to undo this operation.
+    Think carefully when clicking the 'delete' button!
+  </div>
   <button routerLink="/user-profile/{{user.id}}" class="btn">Back</button>
   <button (click)="onDelete()" class="btn btn-danger">Delete</button>
 </form>
