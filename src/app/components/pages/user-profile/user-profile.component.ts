@@ -69,4 +69,8 @@ export class UserProfileComponent implements OnInit {
     })
 
   }
+
+  goDeleteUser() {
+    this.router.navigate([`user-profile-delete/${this.user.id}`]);
+  }
 }

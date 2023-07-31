@@ -62,12 +62,37 @@ input[type="submit"]:hover {
     background-color: transparent;
 }
 
+/* Form Page/Header*/
+
+h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 2.2em;
+}
+
+/* General buttons */
+
+.btn {
+    border: 2px solid transparent;
+    cursor: pointer;
+    margin: 10px;
+    padding: .6em 1em;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.btn.btn-danger {
+    background-color: #dc3545;
+    color:#fff;
+}
+
+
 /* Validators */
 
 .validation-error p {
     color: #dc3545;
     background-color: #f5d1d4;
-    margin-top: .4em;    
+    margin-top: .4em;
     border-left: 3px solid #dc3545;
     padding-left: .5em;
 }

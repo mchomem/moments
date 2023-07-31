@@ -19,6 +19,7 @@ import { ErrorComponent } from './components/pages/error/error.component';
 import { LoginComponent } from './auth/login/login.component';
 import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
 import { SignUpComponent } from './components/pages/sign-up/sign-up.component';
+import { UserDeleteComponent } from './components/pages/user-delete/user-delete.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { SignUpComponent } from './components/pages/sign-up/sign-up.component';
     ErrorComponent,
     LoginComponent,
     UserProfileComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserDeleteComponent
   ],
   imports: [
     BrowserModule,
