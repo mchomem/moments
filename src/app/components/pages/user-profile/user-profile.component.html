@@ -32,6 +32,13 @@
       </p>
     </div>
   </div>
-  <input type="submit" value="Save" />
-  <button (click)="goDeleteUser()"  type="button" class="btn btn-danger">Delete my profile</button>
+  <div class="container-buttons">
+    <div>
+      <input type="submit" value="Save" />
+      <button routerLink="/" class="btn" type="button">Cancel</button>
+    </div>
+    <button (click)="goDeleteUser()" type="button" class="btn btn-danger">
+      Delete my profile
+    </button>
+  </div>
 </form>

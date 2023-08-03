@@ -5,6 +5,8 @@
     Careful! When deleting your user profile data, it will not be possible to undo this operation.
     Think carefully when clicking the 'delete' button!
   </div>
-  <button routerLink="/user-profile/{{user.id}}" class="btn">Back</button>
-  <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+  <div class="container-buttons">
+    <button routerLink="/user-profile/{{user.id}}" class="btn">Back</button>
+    <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+  </div>
 </form>
