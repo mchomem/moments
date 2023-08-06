@@ -51,18 +51,29 @@ export class MomentDetailComponent implements OnInit {
 
   async getMomentDetail() {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    await this.momentService.get(id).subscribe((response) => this.moment = response.data);
+    await this.momentService.get(id).subscribe({
+      next: (response) => this.moment = response.data
+      , error: () => {
+        //TODO: tratar casos de erro
+      }
+      , complete: () => { }
+    });
   }
 
   async removeMoment(id: number) {
-    await this.momentService.delete(id).subscribe(() => {
-      this.messageService.add('Moment successfully deleted.');
-      this.router.navigate(['/']);
+    await this.momentService.delete(id).subscribe({
+      next: () => {
+        this.messageService.add('Moment successfully deleted.');
+        this.router.navigate(['/']);
+      }
+      , error: () => {
+        //TODO: tratar casos de erro
+      }
+      , complete: () => { }
     });
   }
 
   async onSubmitComment(formDirective: FormGroupDirective) {
-
     if (this.commentForm.invalid) {
       return;
     }
@@ -70,12 +81,18 @@ export class MomentDetailComponent implements OnInit {
     const data: Comment = this.commentForm.value;
     data.momentId = Number(this.moment!.id);
 
-    await this.commentService.create(data).subscribe((response) => {
-      this.moment!.comments!.push(response.data)
-      this.messageService.add('Comment added.');
-      // Limpar formuário.
-      this.commentForm.reset();
-      formDirective.resetForm();
+    await this.commentService.create(data).subscribe({
+      next: (response) => {
+        this.moment!.comments!.push(response.data)
+        this.messageService.add('Comment added.');
+        // Limpar formuário.
+        this.commentForm.reset();
+        formDirective.resetForm();
+      }
+      , error: () => {
+        //TODO: tratar casos de erro
+      }
+      , complete: () => { }
     });
   }
 

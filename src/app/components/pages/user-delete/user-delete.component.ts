@@ -20,14 +20,20 @@ export class UserDeleteComponent implements OnInit {
   }
 
   onDelete() {
-    this.userService.delete(this.user.id!).subscribe(() => {
-      
-      sessionStorage.removeItem('token')
-      window.sessionStorage.removeItem('user')
-
-      this.router.navigate(['/']).then(() => {
-        window.location.reload();
-      });
-    })
+    this.userService
+      .delete(this.user.id!)
+      .subscribe({
+        next: () => {
+          sessionStorage.removeItem('token')
+          window.sessionStorage.removeItem('user')
+          this.router.navigate(['/']).then(() => {
+            window.location.reload();
+          });
+        }
+        , error: () => {
+          //TODO: tratar casos de erro
+        }
+        , complete: () => { }
+      })
   }
 }

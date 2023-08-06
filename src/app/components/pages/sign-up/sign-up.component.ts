@@ -62,23 +62,35 @@ export class SignUpComponent implements OnInit {
 
     this.userService
       .getByLogin(this.signUpForm.get('login')?.value)
-      .subscribe((response) => {
-        this.user = response.data
-        if (this.user != null) {
-          this.messageService.add('Login already exists')
-          return
+      .subscribe({
+        next: (response) => {
+          this.user = response.data
+          if (this.user != null) {
+            this.messageService.add('Login already exists')
+            return
+          }
+
+          const formData = new FormData();
+          formData.append('full_name', this.signUpForm.get('full_name')?.value)
+          formData.append('login', this.signUpForm.get('login')?.value)
+          formData.append('password', this.signUpForm.get('password')?.value)
+
+          this.userService.create(formData).subscribe({
+            next: () => {
+              this.messageService.add('Signed up!');
+              this.goBack();
+            }
+            , error: () => {
+              //TODO: tratar casos de erro
+            }
+            , complete: () => { }
+          });
+
         }
-
-        const formData = new FormData();
-        formData.append('full_name', this.signUpForm.get('full_name')?.value)
-        formData.append('login', this.signUpForm.get('login')?.value)
-        formData.append('password', this.signUpForm.get('password')?.value)
-
-        this.userService.create(formData).subscribe(() => {
-          this.messageService.add('Signed up!');
-          this.goBack();
-        });
-
-      })
+        , error: () => {
+          //TODO: tratar casos de erro
+        }
+        , complete: () => { }
+      });
   }
 }

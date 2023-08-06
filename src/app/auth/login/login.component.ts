@@ -43,22 +43,29 @@ export class LoginComponent implements OnInit {
 
     this.authService
       .get(this.login.value, this.password.value)
-      .subscribe((response) => {
-        this.user = response.data
+      .subscribe({
+        next: (response) => {
+          this.user = response.data
 
-        if (this.user.token === null) {
-          this.messageService.add('Access denied')
-        } else {
-          (this.user.token.length > 0)
-          sessionStorage.setItem('token', this.user.token)
-          sessionStorage.setItem('user', JSON.stringify(this.user))
+          if (this.user.token === null) {
+            this.messageService.add('Access denied')
+          } else {
+            (this.user.token.length > 0)
+            sessionStorage.setItem('token', this.user.token)
+            sessionStorage.setItem('user', JSON.stringify(this.user))
 
-          this.router.navigate(['/'])
-            .then(() => {
-              window.location.reload()
-            })
+            this.router.navigate(['/'])
+              .then(() => {
+                window.location.reload()
+              })
+          }
         }
+        , error: () => {
+          //TODO: tratar casos de erro
+        }
+        , complete: () => {
 
+        }
       });
   }
 }

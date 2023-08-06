@@ -24,10 +24,18 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'))
 
-    this.userService.get(id).subscribe((reponse) => {
-      this.user = reponse.data
-      this.userForm.patchValue(this.user)
-    });
+    this.userService
+      .get(id)
+      .subscribe({
+        next: (reponse) => {
+          this.user = reponse.data
+          this.userForm.patchValue(this.user)
+        }
+        , error: () => {
+          //TODO: tratar casos de erro
+        }
+        , complete: () => { }
+      });
 
     this.userForm = new FormGroup({
       id: new FormControl(this.user ? this.user.id : ''),
@@ -63,10 +71,18 @@ export class UserProfileComponent implements OnInit {
     const formData = new FormData();
     formData.append('password', this.userForm.get('password')?.value)
 
-    this.userService.update(this.user.id!, formData).subscribe(() => {
-      this.messageService.add('User data updated.');
-      this.router.navigate(['/']);
-    })
+    this.userService
+      .update(this.user.id!, formData)
+      .subscribe({
+        next: () => {
+          this.messageService.add('User data updated.');
+          this.router.navigate(['/']);
+        }
+        , error: () => {
+          //TODO: tratar casos de erro
+        }
+        , complete: () => { }
+      });
 
   }
 

@@ -30,23 +30,26 @@ export class HomeComponent implements OnInit {
   }
 
   async load() {
-    await this.momentService.getAll().subscribe((items) => {
-      const data = items.data;
-      // Tratando as datas.
-      data.map((item) => {
-        item.created_at = new Date(item.created_at!).toLocaleDateString('pt-BR')
-        item.title = this.dataFormatService.redux(item.title, 30);
-      });
+    await this.momentService.getAll().subscribe({
+      next: (items) => {
+        const data = items.data;
+        // Tratando as datas.
+        data.map((item) => {
+          item.created_at = new Date(item.created_at!).toLocaleDateString('pt-BR')
+          item.title = this.dataFormatService.redux(item.title, 30);
+        });
 
-      this.moments = this.allMoments = data;
-      this.loader = false;
-    }, (error) => {
-      this.route.navigate(['error']);
+        this.moments = this.allMoments = data;
+        this.loader = false;
+      },
+      error: () => {
+        this.route.navigate(['error']);
+      },
+      complete: () => { }
     });
   }
 
   search(event: Event): void {
-
     const target = event.target as HTMLInputElement;
     const value = target.value.toLocaleLowerCase();
 
@@ -55,7 +58,6 @@ export class HomeComponent implements OnInit {
         .toLocaleLowerCase()
         .includes(value);
     });
-
   }
 
 }

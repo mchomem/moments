@@ -40,9 +40,15 @@ export class MomentEditComponent implements OnInit {
       formData.append('image', momentData.image);
     }
 
-    await this.momentService.update(id!, formData).subscribe(() => {
-      this.messageService.add(`Moment ${id} was successfully updated.`);
-      this.router.navigate(['/']);
+    await this.momentService.update(id!, formData).subscribe({
+      next: () => {
+        this.messageService.add(`Moment ${id} was successfully updated.`);
+        this.router.navigate(['/']);
+      }
+      , error: () => {
+        //TODO: tratar casos de erro
+      }
+      , complete: () => { }
     });
   }
 
